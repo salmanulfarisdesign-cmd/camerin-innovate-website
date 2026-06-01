@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Camerin Innovate Products & Services — LIFE HIS, Clinical Management, HR System, CRM, Kiosks, KOT, Digital Marketing, Brand Development.">
+<title>Products &amp; Services — Camerin Innovate</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* filter tabs */
+  .filter-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:48px}
+  .filter-tab{padding:10px 20px;border-radius:8px;border:1.5px solid var(--border);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:var(--muted);background:#fff;cursor:pointer;transition:all 0.2s}
+  .filter-tab:hover,.filter-tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+  /* product section */
+  .product-section{padding:80px 0;border-bottom:1px solid var(--border)}
+  .product-section:last-child{border-bottom:none}
+  .product-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .product-grid.reverse{direction:rtl}
+  .product-grid.reverse>*{direction:ltr}
+  .product-visual{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-hover)}
+  .product-mockup{background:linear-gradient(135deg,var(--blue),var(--teal));padding:40px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+  .pm-orb{position:absolute;border-radius:50%;filter:blur(40px);opacity:0.2;background:#fff}
+  .pm-title{color:#fff;font-family:'Sora',sans-serif;font-size:18px;font-weight:700;margin-bottom:6px}
+  .pm-sub{color:rgba(255,255,255,0.75);font-size:13px}
+  .pm-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:auto}
+  .pm-metric{background:rgba(255,255,255,0.15);border-radius:10px;padding:14px;text-align:center;backdrop-filter:blur(8px)}
+  .pm-num{font-family:'Sora',sans-serif;font-size:20px;font-weight:700;color:#fff}
+  .pm-label{font-size:10px;color:rgba(255,255,255,0.7);margin-top:2px}
+  .product-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(46,158,122,0.1);color:var(--teal);font-size:12px;font-weight:600;padding:5px 12px;border-radius:20px;margin-bottom:14px;border:1px solid rgba(46,158,122,0.2)}
+  .product-title{font-family:'Sora',sans-serif;font-size:30px;font-weight:800;color:var(--blue-dark);line-height:1.2;margin-bottom:14px}
+  .product-title span{background:linear-gradient(90deg,var(--teal),var(--blue-mid));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .product-desc{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:24px}
+  .features-list{list-style:none;margin-bottom:28px}
+  .features-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text);padding:8px 0;border-bottom:1px solid var(--border)}
+  .features-list li:last-child{border-bottom:none}
+  .feat-check{width:20px;height:20px;border-radius:6px;background:rgba(46,158,122,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+  .feat-check svg{width:12px;height:12px;stroke:var(--teal);fill:none;stroke-width:2.5}
+  .product-actions{display:flex;gap:12px;flex-wrap:wrap}
+  /* comparison */
+  .comparison-note{background:var(--light);border-radius:var(--radius);padding:28px;border:1px solid var(--border);margin-top:16px}
+  .cn-title{font-family:'Sora',sans-serif;font-size:15px;font-weight:700;color:var(--text);margin-bottom:8px}
+  .cn-text{font-size:13px;color:var(--muted);line-height:1.65}
+  @media(max-width:900px){
+    .product-grid{grid-template-columns:1fr;gap:36px}
+    .product-grid.reverse{direction:ltr}
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo"><a href="index.html"><img src="assets/camerin_logo.png" alt="Camerin Innovate"></a></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html" class="active">Products &amp; Services</a></li>
+      <li><a href="clients.html">Clients</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Book a Consultation</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="services.html" class="active">Products &amp; Services</a></li>
+    <li><a href="clients.html">Clients</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="mobile-cta">Book a Consultation →</a>
+</div>
+
+<!-- ══ PAGE HERO ══ -->
+<section class="page-hero">
+  <div class="grid-dots"></div>
+  <div class="orb page-hero-orb1"></div>
+  <div class="orb page-hero-orb2"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Products &amp; Services</span>
+    </div>
+    <div class="page-hero-badge"><span></span>8 Products. One Trusted Partner.</div>
+    <h1>Software Built for<br><em>Your Real Operations</em></h1>
+    <p>Every product we build starts with a real operational problem. Not a feature list. Not a template. A solution designed around the people who will use it every day.</p>
+    <div class="page-hero-actions">
+      <a href="contact.html" class="btn-primary">Request a Demo →</a>
+      <a href="contact.html" class="btn-secondary">Get a Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FILTER TABS ══ -->
+<section style="background:#fff;padding:40px 40px 1px">
+  <div class="section-inner">
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-filter="all">All Products</button>
+      <button class="filter-tab" data-filter="healthcare">Healthcare</button>
+      <button class="filter-tab" data-filter="enterprise">Enterprise</button>
+      <button class="filter-tab" data-filter="hospitality">Hospitality</button>
+      <button class="filter-tab" data-filter="marketing">Marketing &amp; Brand</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRODUCTS ══ -->
+<section style="background:#fff;padding:0 40px 80px">
+  <div class="section-inner">
+
+    <!-- HIS -->
+    <div class="product-section" id="his" data-category="healthcare">
+      <div class="product-grid">
+        <div class="product-visual">
+          <div class="product-mockup">
+            <div class="pm-orb" style="width:180px;height:180px;top:-40px;right:-40px"></div>
+            <div><div class="pm-title">LIFE HIS — Hospital Dashboard</div><div class="pm-sub">Comprehensive Healthcare Management</div></div>
+            <div class="pm-metrics">
+              <div class="pm-metric"><div class="pm-num">284</div><div class="pm-label">Patients Today</div></div>
+              <div class="pm-metric"><div class="pm-num">97%</div><div class="pm-label">Bed Occupancy</div></div>
+              <div class="pm-metric"><div class="pm-num">12m</div><div class="pm-label">Avg Wait Time</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="product-badge">🏥 For Hospitals</div>
+          <h2 class="product-title">LIFE HIS — Hospital<br><span>Information System</span></h2>
+          <p class="product-desc">A patient-centric, fully integrated healthcare delivery platform. LIFE HIS eliminates the need for multiple disconnected tools by providing a single-stack solution for clinical, administrative, and financial operations.</p>
+          <ul class="features-list">
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Patient registration, EMR, and medical history management</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>OPD, IPD, ICU, and emergency workflow management</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Pharmacy, laboratory, and radiology integration</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Billing, insurance, and financial reporting</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>NABH compliance and quality management</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Real-time analytics and hospital performance dashboards</li>
+          </ul>
+          <div class="product-actions">
+            <a href="contact.html?product=his" class="btn-primary">Request a Demo →</a>
+            <a href="contact.html" class="btn-secondary">Get a Quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CMS -->
+    <div class="product-section" id="cms" data-category="healthcare">
+      <div class="product-grid reverse">
+        <div class="product-visual">
+          <div class="product-mockup" style="background:linear-gradient(135deg,var(--teal),#1a7a5a)">
+            <div class="pm-orb" style="width:160px;height:160px;bottom:-30px;left:-30px"></div>
+            <div><div class="pm-title">Clinical Management System</div><div class="pm-sub">Streamlined Clinical Workflows</div></div>
+            <div class="pm-metrics">
+              <div class="pm-metric"><div class="pm-num">48</div><div class="pm-label">Active Cases</div></div>
+              <div class="pm-metric"><div class="pm-num">99%</div><div class="pm-label">Data Accuracy</div></div>
+              <div class="pm-metric"><div class="pm-num">3x</div><div class="pm-label">Faster Docs</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="product-badge">🏨 For Clinics &amp; Healthcare Providers</div>
+          <h2 class="product-title">Clinical<br><span>Management System</span></h2>
+          <p class="product-desc">A focused platform for managing clinical operations, care team coordination, and patient documentation. Built for clinics, specialty centers, and departments within larger hospitals.</p>
+          <ul class="features-list">
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Electronic medical records and clinical notes</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Appointment scheduling and patient queue management</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Prescription management and drug interaction alerts</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Clinical audit trails and compliance reporting</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Multi-doctor, multi-location support</li>
+          </ul>
+          <div class="product-actions">
+            <a href="contact.html?product=cms" class="btn-teal">Request a Demo →</a>
+            <a href="contact.html" class="btn-secondary">Get a Quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HRM -->
+    <div class="product-section" id="hrm" data-category="enterprise">
+      <div class="product-grid">
+        <div class="product-visual">
+          <div class="product-mockup" style="background:linear-gradient(135deg,#1a3c6e,var(--blue-mid))">
+            <div class="pm-orb" style="width:200px;height:200px;top:-60px;right:-60px"></div>
+            <div><div class="pm-title">HR Management System</div><div class="pm-sub">Complete Workforce Management</div></div>
+            <div class="pm-metrics">
+              <div class="pm-metric"><div class="pm-num">148</div><div class="pm-label">Employees</div></div>
+              <div class="pm-metric"><div class="pm-num">100%</div><div class="pm-label">Payroll Auto</div></div>
+              <div class="pm-metric"><div class="pm-num">4.8</div><div class="pm-label">Staff Rating</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="product-badge">👥 For All Businesses</div>
+          <h2 class="product-title">HR Management<br><span>System</span></h2>
+          <p class="product-desc">A complete workforce management platform that handles everything from recruitment to retirement. Stop managing spreadsheets — start managing people.</p>
+          <ul class="features-list">
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Employee onboarding, profiles, and document management</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Attendance tracking with biometric and mobile support</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Automated payroll processing and tax compliance</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Leave management and shift scheduling</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Performance reviews and appraisal workflows</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Recruitment pipeline and applicant tracking</li>
+          </ul>
+          <div class="product-actions">
+            <a href="contact.html?product=hrm" class="btn-primary">Request a Demo →</a>
+            <a href="contact.html" class="btn-secondary">Get a Quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CRM -->
+    <div class="product-section" id="crm" data-category="enterprise">
+      <div class="product-grid reverse">
+        <div class="product-visual">
+          <div class="product-mockup" style="background:linear-gradient(135deg,#2E9E7A,#1B4B8A)">
+            <div class="pm-orb" style="width:150px;height:150px;bottom:-20px;right:-20px"></div>
+            <div><div class="pm-title">CRM Dashboard</div><div class="pm-sub">Customer Relationship Management</div></div>
+            <div class="pm-metrics">
+              <div class="pm-metric"><div class="pm-num">320</div><div class="pm-label">Active Leads</div></div>
+              <div class="pm-metric"><div class="pm-num">78%</div><div class="pm-label">Conversion</div></div>
+              <div class="pm-metric"><div class="pm-num">₹2.4L</div><div class="pm-label">Pipeline</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="product-badge">📈 For Sales &amp; Business Teams</div>
+          <h2 class="product-title">Customer Relationship<br><span>Management (CRM)</span></h2>
+          <p class="product-desc">Track every lead, manage every relationship, and close more deals — without losing track of a single conversation. Built for sales teams that need clarity, not complexity.</p>
+          <ul class="features-list">
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Lead capture, scoring, and pipeline management</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Customer interaction history and follow-up reminders</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Sales forecasting and performance dashboards</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Email and communication integration</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Custom workflows and automation rules</li>
+          </ul>
+          <div class="product-actions">
+            <a href="contact.html?product=crm" class="btn-teal">Request a Demo →</a>
+            <a href="contact.html" class="btn-secondary">Get a Quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KIOSK -->
+    <div class="product-section" id="kiosk" data-category="hospitality">
+      <div class="product-grid">
+        <div class="product-visual">
+          <div class="product-mockup" style="background:linear-gradient(135deg,#0f2f5a,#1B4B8A)">
+            <div class="pm-orb" style="width:180px;height:180px;top:-40px;left:-40px"></div>
+            <div><div class="pm-title">Self-Service Kiosk</div><div class="pm-sub">Reduce Queues. Serve More People.</div></div>
+            <div class="pm-metrics">
+              <div class="pm-metric"><div class="pm-num">72%</div><div class="pm-label">Queue Reduced</div></div>
+              <div class="pm-metric"><div class="pm-num">24/7</div><div class="pm-label">Available</div></div>
+              <div class="pm-metric"><div class="pm-num">2min</div><div class="pm-label">Avg Check-in</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="product-badge">🖥 For Hospitals, Retail &amp; Hospitality</div>
+          <h2 class="product-title">Self-Service<br><span>Kiosk System</span></h2>
+          <p class="product-desc">Custom touchscreen kiosk solutions that reduce staff workload, eliminate queues, and give customers and patients a faster, more dignified experience.</p>
+          <ul class="features-list">
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Patient check-in and token generation for hospitals</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Bill payment and receipt printing</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Wayfinding and directory information</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Retail product catalog and order placement</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Multilingual interface support</li>
+          </ul>
+          <div class="product-actions">
+            <a href="contact.html?product=kiosk" class="btn-primary">Request a Demo →</a>
+            <a href="contact.html" class="btn-secondary">Get a Quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KOT -->
+    <div class="product-section" id="kot" data-category="hospitality">
+      <div class="product-grid reverse">
+        <div class="product-visual">
+          <div class="product-mockup" style="background:linear-gradient(135deg,#e07b39,#c05a1a)">
+            <div class="pm-orb" style="width:160px;height:160px;top:-30px;right:-30px"></div>
+            <div><div class="pm-title">Kitchen Order Terminal</div><div class="pm-sub">Faster Kitchen. Better Service.</div></div>
+            <div class="pm-metrics">
+              <div class="pm-metric"><div class="pm-num">60%</div><div class="pm-label">Fewer Errors</div></div>
+              <div class="pm-metric"><div class="pm-num">2x</div><div class="pm-label">Order Speed</div></div>
+              <div class="pm-metric"><div class="pm-num">100%</div><div class="pm-label">Digital</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="product-badge">🍽 For Restaurants &amp; Cafeterias</div>
+          <h2 class="product-title">Kitchen Order<br><span>Terminal (KOT)</span></h2>
+          <p class="product-desc">A digital kitchen display system that replaces paper tickets with real-time order management. Orders from the floor go directly to the kitchen screen — no printing, no confusion, no lost tickets.</p>
+          <ul class="features-list">
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Real-time order display on kitchen screens</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Order status updates and preparation timers</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Integration with POS and billing systems</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Multi-station support for large kitchens</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Order history and performance reporting</li>
+          </ul>
+          <div class="product-actions">
+            <a href="contact.html?product=kot" class="btn-primary">Request a Demo →</a>
+            <a href="contact.html" class="btn-secondary">Get a Quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIGITAL MARKETING -->
+    <div class="product-section" id="marketing" data-category="marketing">
+      <div class="product-grid">
+        <div class="product-visual">
+          <div class="product-mockup" style="background:linear-gradient(135deg,#2563A8,var(--teal))">
+            <div class="pm-orb" style="width:160px;height:160px;bottom:-40px;left:-20px"></div>
+            <div><div class="pm-title">Digital Marketing</div><div class="pm-sub">Grow Your Brand Online</div></div>
+            <div class="pm-metrics">
+              <div class="pm-metric"><div class="pm-num">3x</div><div class="pm-label">Traffic Growth</div></div>
+              <div class="pm-metric"><div class="pm-num">68%</div><div class="pm-label">Lead Increase</div></div>
+              <div class="pm-metric"><div class="pm-num">SEO</div><div class="pm-label">Page 1 Results</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="product-badge">📣 For All Businesses</div>
+          <h2 class="product-title">Digital<br><span>Marketing Services</span></h2>
+          <p class="product-desc">Your brand deserves visibility. We craft data-driven digital marketing strategies that bring the right audience to your business — and convert them into customers.</p>
+          <ul class="features-list">
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Search engine optimization (SEO) and content strategy</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Social media management and paid campaigns</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Google Ads and performance marketing</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Email marketing and lead nurturing campaigns</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Analytics, reporting, and ROI tracking</li>
+          </ul>
+          <div class="product-actions">
+            <a href="contact.html?product=marketing" class="btn-primary">Get a Strategy Call →</a>
+            <a href="contact.html" class="btn-secondary">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BRAND DEVELOPMENT -->
+    <div class="product-section" id="brand" data-category="marketing">
+      <div class="product-grid reverse">
+        <div class="product-visual">
+          <div class="product-mockup" style="background:linear-gradient(135deg,#1a2340,#2E9E7A)">
+            <div class="pm-orb" style="width:180px;height:180px;top:-40px;right:-40px"></div>
+            <div><div class="pm-title">Brand Development</div><div class="pm-sub">Identity That Lasts</div></div>
+            <div class="pm-metrics">
+              <div class="pm-metric"><div class="pm-num">Logo</div><div class="pm-label">Identity Design</div></div>
+              <div class="pm-metric"><div class="pm-num">UI/UX</div><div class="pm-label">Visual System</div></div>
+              <div class="pm-metric"><div class="pm-num">Brand</div><div class="pm-label">Strategy</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="product-badge">✨ For Startups &amp; Enterprises</div>
+          <h2 class="product-title">Brand<br><span>Development</span></h2>
+          <p class="product-desc">A brand is not just a logo — it's how people feel about you before they ever speak to you. We build brand identities that reflect who you are, resonate with your audience, and stand the test of time.</p>
+          <ul class="features-list">
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Brand strategy and positioning</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Logo design and visual identity system</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Brand guidelines and style documentation</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Marketing collateral design (brochures, presentations)</li>
+            <li><div class="feat-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Website UI/UX design and redesign</li>
+          </ul>
+          <div class="product-actions">
+            <a href="contact.html?product=brand" class="btn-primary">Start a Brand Project →</a>
+            <a href="contact.html" class="btn-secondary">See Our Work</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="cta-section">
+  <div class="cta-orb cta-orb1"></div>
+  <div class="cta-orb cta-orb2"></div>
+  <div class="cta-inner">
+    <span class="cta-label">Not sure which product fits?</span>
+    <h2 class="cta-title">Let's Figure It Out Together</h2>
+    <p class="cta-sub">Tell us your business challenge. We'll recommend the right solution — and show you exactly how it will work for your team.</p>
+    <div class="cta-actions">
+      <a href="contact.html" class="btn-white">Book a Free Consultation</a>
+      <a href="clients.html" class="btn-outline-white">See Our Clients</a>
+    </div>
+    <div class="cta-contact">Or call us: <a href="tel:+914844063599">+91 484-4063599</a></div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-logo"><img src="assets/camerin_logo.png" alt="Camerin Innovate"></div>
+        <p class="footer-desc">Leading healthcare and business software company based in Kochi, Kerala.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=61557112896019" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/camerin_innovate" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://x.com/CamerinInnovate" target="_blank" rel="noopener" class="social-btn" aria-label="Twitter / X"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M4 20L20 4" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+          <a href="https://www.threads.net/@camerin_innovate" target="_blank" rel="noopener" class="social-btn" aria-label="Threads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 4c1.5 0 2.8.56 3.8 1.46C14.9 8.3 14 9.6 14 11c0 1.1.9 2 2 2s2-.9 2-2c0-3.31-2.69-6-6-6s-6 2.69-6 6v2c0 3.31 2.69 6 6 6 1.5 0 2.87-.55 3.9-1.46"/></svg></a>
+          <a href="https://www.linkedin.com/in/camerin-innovate-pvt-ltd-2baa652b9" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+        <div class="footer-address">Carnival Infopark Phase 1, Kakkanad<br>Kochi, Kerala — 682030<br><a href="mailto:info@camerinfolks.com" id="footer-email" >info@camerinfolks.com</a></div>
+      </div>
+      <div>
+        <div class="footer-heading">Company</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="clients.html">Clients</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Products</div>
+        <ul class="footer-links">
+          <li><a href="#his">LIFE HIS</a></li>
+          <li><a href="#cms">Clinical Management</a></li>
+          <li><a href="#hrm">HR System</a></li>
+          <li><a href="#crm">CRM</a></li>
+          <li><a href="#kiosk">Kiosks &amp; KOT</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Get In Touch</div>
+        <ul class="footer-links">
+          <li><a href="contact.html">Request a Demo</a></li>
+          <li><a href="contact.html">Get a Quote</a></li>
+          <li><a href="contact.html">Support</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Camerin Innovate Pvt Ltd. All rights reserved.</span>
+      <span>Made with care in Kerala, India 🇮🇳</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    });
+  });
+
+  // ── PRODUCT FILTER TABS ──
+  const filterTabs = document.querySelectorAll('.filter-tab');
+  const productSections = document.querySelectorAll('.product-section');
+
+  filterTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Update active tab style
+      filterTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const filter = tab.getAttribute('data-filter');
+
+      productSections.forEach(section => {
+        const match = filter === 'all' || section.getAttribute('data-category') === filter;
+        if (match) {
+          section.style.display = '';
+          // Smooth fade-in
+          section.style.opacity = '0';
+          section.style.transform = 'translateY(12px)';
+          requestAnimationFrame(() => {
+            section.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            section.style.opacity = '1';
+            section.style.transform = 'translateY(0)';
+          });
+        } else {
+          section.style.display = 'none';
+        }
+      });
+
+      // Scroll back to top of products area smoothly
+      document.querySelector('.filter-tabs').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  });
+</script>
+
+</body>
+</html>
