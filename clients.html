@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Clients & Partners of Camerin Innovate — Hospitals, clinics and enterprises across Kerala that trust our software.">
+<title>Clients &amp; Partners — Camerin Innovate</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .clients-grid-full{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin-bottom:60px}
+  .client-card{background:#fff;border-radius:var(--radius);padding:28px 20px;border:1px solid var(--border);text-align:center;transition:all 0.25s;position:relative;overflow:hidden}
+  .client-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--blue-mid));transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
+  .client-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-4px)}
+  .client-card:hover::before{transform:scaleX(1)}
+  .client-card img{height:52px;width:auto;max-width:140px;object-fit:contain;margin:0 auto 14px;display:block}
+  .client-name{font-family:'Sora',sans-serif;font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px}
+  .client-type{font-size:11px;color:var(--teal);font-weight:600}
+  /* sector */
+  .sector-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
+  .sector-tab{padding:10px 20px;border-radius:8px;border:1.5px solid var(--border);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:var(--muted);background:#fff;cursor:pointer;transition:all 0.2s}
+  .sector-tab:hover,.sector-tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+  /* testimonials */
+  .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .testi-card{background:#fff;border-radius:var(--radius);padding:32px;border:1px solid var(--border);transition:all 0.25s;position:relative}
+  .testi-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-4px)}
+  .testi-card-quote{font-family:'Sora',sans-serif;font-size:15px;font-weight:600;color:var(--text);line-height:1.65;margin-bottom:20px;position:relative;padding-top:10px}
+  .testi-card-quote::before{content:'\201C';font-size:48px;color:var(--teal);opacity:0.25;position:absolute;top:-10px;left:-6px;font-family:Georgia,serif;line-height:1}
+  .testi-card-author{display:flex;align-items:center;gap:12px}
+  .tc-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--teal));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Sora',sans-serif;font-weight:700;font-size:13px;flex-shrink:0}
+  .tc-name{font-weight:600;color:var(--text);font-size:13px}
+  .tc-role{font-size:12px;color:var(--muted)}
+  /* sectors breakdown */
+  .sectors-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .sector-card{background:#fff;border-radius:var(--radius);padding:28px;border:1px solid var(--border);transition:all 0.25s;text-align:center}
+  .sector-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-4px)}
+  .sector-icon{width:60px;height:60px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:28px}
+  .sector-num{font-family:'Sora',sans-serif;font-size:32px;font-weight:800;color:var(--blue);margin-bottom:4px}
+  .sector-name{font-family:'Sora',sans-serif;font-size:15px;font-weight:700;color:var(--text);margin-bottom:8px}
+  .sector-desc{font-size:13px;color:var(--muted);line-height:1.6}
+  @media(max-width:900px){
+    .testimonials-grid{grid-template-columns:1fr}
+    .sectors-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:600px){
+    .sectors-grid{grid-template-columns:1fr}
+    .clients-grid-full{grid-template-columns:repeat(2,1fr)}
+  }
+  /* case study carousel */
+  .case-carousel-wrap{max-width:960px;margin:0 auto}
+  .case-carousel{display:flex;align-items:center;gap:12px}
+  .case-carousel-col{flex:1;min-width:0}
+  .case-card{background:var(--light);border-radius:var(--radius);border:1px solid var(--border);padding:48px;position:relative;overflow:hidden}
+  .case-card-bar{position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--teal),var(--blue-mid))}
+  .case-slide-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .case-label{font-size:13px;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+  .case-title{font-family:'Sora',sans-serif;font-size:22px;font-weight:800;color:var(--blue-dark);margin-bottom:14px}
+  .case-text{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:20px}
+  .case-text:last-child{margin-bottom:0}
+  .case-stats{display:flex;flex-direction:column;gap:16px}
+  .case-stat{background:#fff;border-radius:12px;padding:20px;border:1px solid var(--border);text-align:center}
+  .case-stat-num{font-family:'Sora',sans-serif;font-size:32px;font-weight:800;margin-bottom:4px}
+  .case-stat-num--blue{color:var(--blue)}
+  .case-stat-num--teal{color:var(--teal)}
+  .case-stat-num--mid{color:var(--blue-mid)}
+  .case-stat-label{font-size:13px;color:var(--muted);margin-top:4px}
+  .carousel-viewport{overflow:hidden}
+  .carousel-track{display:flex;transition:transform 0.45s ease}
+  .carousel-slide{flex:0 0 100%;min-width:0}
+  .carousel-btn{flex-shrink:0;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--border);background:#fff;color:var(--blue);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+  .carousel-btn:hover{border-color:var(--teal);color:var(--teal);box-shadow:var(--shadow)}
+  .carousel-btn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2}
+  .carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:24px}
+  .carousel-dot{width:8px;height:8px;border-radius:50%;border:none;background:rgba(27,75,138,0.2);cursor:pointer;padding:0;transition:background 0.2s,transform 0.2s}
+  .carousel-dot.active{background:var(--teal);transform:scale(1.15)}
+  @media(max-width:768px){
+    .case-slide-grid{grid-template-columns:1fr}
+    .case-card{padding:28px 24px}
+    .case-carousel{gap:4px}
+    .carousel-btn{width:36px;height:36px}
+    .carousel-btn svg{width:16px;height:16px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo"><a href="index.html"><img src="assets/camerin_logo.png" alt="Camerin Innovate"></a></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Products &amp; Services</a></li>
+      <li><a href="clients.html" class="active">Clients</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Book a Consultation</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="services.html">Products &amp; Services</a></li>
+    <li><a href="clients.html" class="active">Clients</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="mobile-cta">Book a Consultation →</a>
+</div>
+
+<!-- ══ PAGE HERO ══ -->
+<section class="page-hero">
+  <div class="grid-dots"></div>
+  <div class="orb page-hero-orb1"></div>
+  <div class="orb page-hero-orb2"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Clients &amp; Partners</span>
+    </div>
+    <div class="page-hero-badge"><span></span>50+ Organizations Trust Camerin</div>
+    <h1>Real Organizations.<br><em>Real Results.</em></h1>
+    <p>From major hospitals in Kerala to growing enterprises, our clients chose us because we understood their problem before we offered a solution. Here's who we work with.</p>
+    <div class="page-hero-actions">
+      <a href="contact.html" class="btn-primary">Join Our Clients →</a>
+      <a href="services.html" class="btn-secondary">See Our Products</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS ══ -->
+<section style="background:#fff">
+  <div class="section-inner">
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-num">50+</div><div class="stat-label">Client Organizations</div></div>
+      <div class="stat-card"><div class="stat-num">8+</div><div class="stat-label">Years of Partnerships</div></div>
+      <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Industry Sectors</div></div>
+      <div class="stat-card"><div class="stat-num">98%</div><div class="stat-label">Client Retention Rate</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTORS ══ -->
+<section style="background:var(--light)">
+  <div class="section-inner">
+    <div class="section-header center">
+      <span class="section-label">Industries We Serve</span>
+      <h2 class="section-title">Built Across <span>Multiple Sectors</span></h2>
+    </div>
+    <div class="sectors-grid">
+      <div class="sector-card">
+        <div class="sector-icon" style="background:rgba(27,75,138,0.1)">🏥</div>
+        <div class="sector-num">30+</div>
+        <div class="sector-name">Healthcare</div>
+        <div class="sector-desc">Hospitals, clinics, and specialty care centers using LIFE HIS and Clinical Management systems across Kerala.</div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon" style="background:rgba(46,158,122,0.1)">🏢</div>
+        <div class="sector-num">15+</div>
+        <div class="sector-name">Enterprise &amp; Corporates</div>
+        <div class="sector-desc">Organizations using our HR, CRM, and brand development services to streamline operations and grow their business.</div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon" style="background:rgba(37,99,168,0.1)">🍽</div>
+        <div class="sector-num">10+</div>
+        <div class="sector-name">Hospitality &amp; Retail</div>
+        <div class="sector-desc">Restaurants, cafeterias, and retail outlets using our KOT and Kiosk systems for faster, error-free service.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CLIENT LOGOS ══ -->
+<section style="background:#fff">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Our Clients</span>
+      <h2 class="section-title">Organizations That <span>Work With Us</span></h2>
+      <p class="section-sub">These are the institutions that trusted us with their most critical operations. We are proud to work alongside each one.</p>
+    </div>
+    <div class="sector-tabs">
+      <button class="sector-tab active" data-filter="all">All</button>
+      <button class="sector-tab" data-filter="healthcare">Healthcare</button>
+      <button class="sector-tab" data-filter="enterprise">Enterprise</button>
+      <button class="sector-tab" data-filter="hospitality">Hospitality</button>
+    </div>
+    <div class="clients-grid-full" id="clients-grid">
+      <div class="client-card" data-category="healthcare">
+        <img src="assets/amala-logo.webp" alt="Amala Institute of Medical Sciences">
+        <div class="client-name">Amala Institute of Medical Sciences</div>
+        <div class="client-type">Healthcare — Thrissur</div>
+      </div>
+      <div class="client-card" data-category="healthcare">
+        <img src="assets/logo-mitera.webp" alt="Mitera Hospital">
+        <div class="client-name">Mitera Hospital</div>
+        <div class="client-type">Healthcare — Kerala</div>
+      </div>
+      <div class="client-card" data-category="healthcare">
+        <img src="assets/providence hospitals logo.png" alt="Providence Hospitals">
+        <div class="client-name">Providence Hospitals</div>
+        <div class="client-type">Healthcare — Kochi</div>
+      </div>
+      <div class="client-card" data-category="healthcare">
+        <img src="assets/samarithan.png" alt="Samaritan Hospital">
+        <div class="client-name">Samaritan Hospital</div>
+        <div class="client-type">Healthcare — Kerala</div>
+      </div>
+      <div class="client-card" data-category="healthcare">
+        <img src="assets/sjh-logo-new.png" alt="SJH Hospital">
+        <div class="client-name">SJH Hospital</div>
+        <div class="client-type">Healthcare — Kerala</div>
+      </div>
+      <div class="client-card" data-category="healthcare" style="background:var(--light)">
+        <div style="height:52px;width:120px;background:linear-gradient(90deg,#d1dae8,#bfc9d6);border-radius:6px;margin:0 auto 14px"></div>
+        <div class="client-name">Partner Hospital</div>
+        <div class="client-type">Healthcare — Kerala</div>
+      </div>
+      <div class="client-card" data-category="enterprise" style="background:var(--light)">
+        <div style="height:52px;width:100px;background:linear-gradient(90deg,#d1dae8,#bfc9d6);border-radius:6px;margin:0 auto 14px"></div>
+        <div class="client-name">Enterprise Client</div>
+        <div class="client-type">Corporate — Kerala</div>
+      </div>
+      <div class="client-card" data-category="hospitality" style="background:var(--light)">
+        <div style="height:52px;width:110px;background:linear-gradient(90deg,#d1dae8,#bfc9d6);border-radius:6px;margin:0 auto 14px"></div>
+        <div class="client-name">Restaurant Chain</div>
+        <div class="client-type">Hospitality — Kerala</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ══ -->
+<section style="background:var(--light)">
+  <div class="section-inner">
+    <div class="section-header center">
+      <span class="section-label">What Our Clients Say</span>
+      <h2 class="section-title">Straight From the <span>People Who Use It</span></h2>
+      <p class="section-sub">Not marketing copy. Real words from the people whose organizations run on our software every day.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card">
+        <p class="testi-card-quote">Camerin's Hospital Information System transformed how we manage patient flow. What used to take hours now happens in minutes. Our staff actually enjoys using it.</p>
+        <div class="testi-card-author">
+          <div class="tc-avatar">DK</div>
+          <div>
+            <div class="tc-name">Dr. Deepak Kumar</div>
+            <div class="tc-role">Medical Director, Regional Hospital</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-card-quote">The implementation was smooth, the training was thorough, and the support after launch has been excellent. Camerin didn't disappear after handing over the system.</p>
+        <div class="testi-card-author">
+          <div class="tc-avatar" style="background:linear-gradient(135deg,var(--teal),var(--blue))">SR</div>
+          <div>
+            <div class="tc-name">Sheena Rajan</div>
+            <div class="tc-role">Hospital Administrator, Amala Institute</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-card-quote">Our billing errors dropped significantly after we implemented LIFE HIS. The financial reporting alone has saved us hours every week. I recommend this to every hospital.</p>
+        <div class="testi-card-author">
+          <div class="tc-avatar" style="background:linear-gradient(135deg,#1a5f7a,var(--blue))">PM</div>
+          <div>
+            <div class="tc-name">Pratheesh Mathew</div>
+            <div class="tc-role">CFO, Providence Hospitals</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CASE HIGHLIGHT ══ -->
+<section style="background:#fff">
+  <div class="section-inner">
+    <div class="section-header center">
+      <span class="section-label">Impact Story</span>
+      <h2 class="section-title">What a Real <span>Implementation Looks Like</span></h2>
+    </div>
+    <div class="case-carousel-wrap">
+      <div class="case-carousel" data-autoplay="7000">
+        <button type="button" class="carousel-btn carousel-prev" aria-label="Previous case study">
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="case-carousel-col">
+          <div class="carousel-viewport" aria-live="polite">
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <div class="case-card">
+                  <div class="case-card-bar"></div>
+                  <div class="case-slide-grid">
+                    <div>
+                      <div class="case-label">Case Study</div>
+                      <h3 class="case-title">Amala Institute of Medical Sciences</h3>
+                      <p class="case-text">A 1,000-bed multi-specialty hospital in Thrissur faced challenges with fragmented patient records, manual billing processes, and poor coordination between departments. They needed a unified system.</p>
+                      <p class="case-text">After implementing LIFE HIS, the hospital unified its clinical, administrative, and financial operations into a single platform — reducing errors, improving patient experience, and cutting administrative overhead significantly.</p>
+                    </div>
+                    <div class="case-stats">
+                      <div class="case-stat"><div class="case-stat-num case-stat-num--blue">40%</div><div class="case-stat-label">Reduction in patient wait times</div></div>
+                      <div class="case-stat"><div class="case-stat-num case-stat-num--teal">60%</div><div class="case-stat-label">Fewer billing errors reported</div></div>
+                      <div class="case-stat"><div class="case-stat-num case-stat-num--mid">3x</div><div class="case-stat-label">Faster records retrieval</div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-slide" aria-hidden="true">
+                <div class="case-card">
+                  <div class="case-card-bar"></div>
+                  <div class="case-slide-grid">
+                    <div>
+                      <div class="case-label">Case Study</div>
+                      <h3 class="case-title">Mitera Hospital</h3>
+                      <p class="case-text">Mitera Hospital needed to modernize outpatient workflows and give clinical teams real-time access to patient history across departments — without disrupting day-to-day care.</p>
+                      <p class="case-text">With LIFE HIS and Clinical Management modules, Mitera connected registration, nursing, and physician workflows on one platform — improving handoffs, reducing duplicate data entry, and giving leadership clearer operational visibility.</p>
+                    </div>
+                    <div class="case-stats">
+                      <div class="case-stat"><div class="case-stat-num case-stat-num--blue">35%</div><div class="case-stat-label">Faster outpatient registration</div></div>
+                      <div class="case-stat"><div class="case-stat-num case-stat-num--teal">50%</div><div class="case-stat-label">Less duplicate documentation</div></div>
+                      <div class="case-stat"><div class="case-stat-num case-stat-num--mid">2x</div><div class="case-stat-label">Quicker cross-department updates</div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-slide" aria-hidden="true">
+                <div class="case-card">
+                  <div class="case-card-bar"></div>
+                  <div class="case-slide-grid">
+                    <div>
+                      <div class="case-label">Case Study</div>
+                      <h3 class="case-title">Providence Hospitals</h3>
+                      <p class="case-text">Providence Hospitals struggled with billing discrepancies, delayed financial reporting, and reconciling charges across multiple service lines — creating stress for finance teams and leadership.</p>
+                      <p class="case-text">LIFE HIS brought billing, collections, and reporting into one integrated system. Finance teams now close cycles faster with fewer manual adjustments, and leadership has dependable dashboards for decision-making.</p>
+                    </div>
+                    <div class="case-stats">
+                      <div class="case-stat"><div class="case-stat-num case-stat-num--teal">60%</div><div class="case-stat-label">Fewer billing errors reported</div></div>
+                      <div class="case-stat"><div class="case-stat-num case-stat-num--blue">45%</div><div class="case-stat-label">Faster monthly financial close</div></div>
+                      <div class="case-stat"><div class="case-stat-num case-stat-num--mid">4h</div><div class="case-stat-label">Saved per week on reporting</div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-slide" aria-hidden="true">
+                <div class="case-card">
+                  <div class="case-card-bar"></div>
+                  <div class="case-slide-grid">
+                    <div>
+                      <div class="case-label">Case Study</div>
+                      <h3 class="case-title">Samaritan Hospital</h3>
+                      <p class="case-text">Samaritan Hospital relied on paper-heavy processes for admissions and discharge planning, which slowed bed turnover and made it harder for teams to coordinate patient movement.</p>
+                      <p class="case-text">Camerin deployed LIFE HIS with streamlined admission and bed-management workflows. Staff now track patient status digitally from arrival to discharge — improving bed availability and communication across wards.</p>
+                    </div>
+                    <div class="case-stats">
+                      <div class="case-stat"><div class="case-stat-num case-stat-num--blue">30%</div><div class="case-stat-label">Faster admission processing</div></div>
+                      <div class="case-stat"><div class="case-stat-num case-stat-num--teal">25%</div><div class="case-stat-label">Improved bed turnover rate</div></div>
+                      <div class="case-stat"><div class="case-stat-num case-stat-num--mid">90%</div><div class="case-stat-label">Digital discharge summaries</div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-slide" aria-hidden="true">
+                <div class="case-card">
+                  <div class="case-card-bar"></div>
+                  <div class="case-slide-grid">
+                    <div>
+                      <div class="case-label">Case Study</div>
+                      <h3 class="case-title">SJH Hospital</h3>
+                      <p class="case-text">SJH Hospital wanted to improve how clinical and administrative teams share information — especially for lab results, pharmacy orders, and patient updates moving between departments.</p>
+                      <p class="case-text">With Camerin's integrated HIS platform, SJH connected key departments on shared patient records. Teams spend less time chasing information and more time on care, with audit-ready documentation across the hospital.</p>
+                    </div>
+                    <div class="case-stats">
+                      <div class="case-stat"><div class="case-stat-num case-stat-num--teal">55%</div><div class="case-stat-label">Faster lab result availability</div></div>
+                      <div class="case-stat"><div class="case-stat-num case-stat-num--blue">40%</div><div class="case-stat-label">Fewer inter-department calls</div></div>
+                      <div class="case-stat"><div class="case-stat-num case-stat-num--mid">100%</div><div class="case-stat-label">Centralized patient records</div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-dots" role="tablist" aria-label="Case study slides">
+            <button type="button" class="carousel-dot active" role="tab" aria-label="Case study 1" aria-selected="true"></button>
+            <button type="button" class="carousel-dot" role="tab" aria-label="Case study 2" aria-selected="false"></button>
+            <button type="button" class="carousel-dot" role="tab" aria-label="Case study 3" aria-selected="false"></button>
+            <button type="button" class="carousel-dot" role="tab" aria-label="Case study 4" aria-selected="false"></button>
+            <button type="button" class="carousel-dot" role="tab" aria-label="Case study 5" aria-selected="false"></button>
+          </div>
+        </div>
+        <button type="button" class="carousel-btn carousel-next" aria-label="Next case study">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="cta-section">
+  <div class="cta-orb cta-orb1"></div>
+  <div class="cta-orb cta-orb2"></div>
+  <div class="cta-inner">
+    <span class="cta-label">Ready to join them?</span>
+    <h2 class="cta-title">Your Organization Could Be Next</h2>
+    <p class="cta-sub">Every one of our clients started with a problem. We'd like to hear yours. No commitment — just a conversation.</p>
+    <div class="cta-actions">
+      <a href="contact.html" class="btn-white">Start a Conversation →</a>
+      <a href="services.html" class="btn-outline-white">See Our Products</a>
+    </div>
+    <div class="cta-contact">Or call us: <a href="tel:+914844063599">+91 484-4063599</a></div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-logo"><img src="assets/camerin_logo.png" alt="Camerin Innovate"></div>
+        <p class="footer-desc">Leading healthcare and business software company based in Kochi, Kerala.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=61557112896019" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/camerin_innovate" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://x.com/CamerinInnovate" target="_blank" rel="noopener" class="social-btn" aria-label="Twitter / X"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M4 20L20 4" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+          <a href="https://www.threads.net/@camerin_innovate" target="_blank" rel="noopener" class="social-btn" aria-label="Threads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 4c1.5 0 2.8.56 3.8 1.46C14.9 8.3 14 9.6 14 11c0 1.1.9 2 2 2s2-.9 2-2c0-3.31-2.69-6-6-6s-6 2.69-6 6v2c0 3.31 2.69 6 6 6 1.5 0 2.87-.55 3.9-1.46"/></svg></a>
+          <a href="https://www.linkedin.com/in/camerin-innovate-pvt-ltd-2baa652b9" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+        <div class="footer-address">Carnival Infopark Phase 1, Kakkanad<br>Kochi, Kerala — 682030<br><a href="mailto:info@camerinfolks.com" id="footer-email" >info@camerinfolks.com</a></div>
+      </div>
+      <div>
+        <div class="footer-heading">Company</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="clients.html">Clients</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Products</div>
+        <ul class="footer-links">
+          <li><a href="services.html#his">LIFE HIS</a></li>
+          <li><a href="services.html#cms">Clinical Management</a></li>
+          <li><a href="services.html#hrm">HR System</a></li>
+          <li><a href="services.html#crm">CRM</a></li>
+          <li><a href="services.html#kiosk">Kiosks &amp; KOT</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Get In Touch</div>
+        <ul class="footer-links">
+          <li><a href="contact.html">Request a Demo</a></li>
+          <li><a href="contact.html">Get a Quote</a></li>
+          <li><a href="contact.html">Support</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Camerin Innovate Pvt Ltd. All rights reserved.</span>
+      <span>Made with care in Kerala, India 🇮🇳</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/carousel.js"></script>
+<script>
+  // ── HAMBURGER ──
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    });
+  });
+
+  // ── CLIENT FILTER TABS ──
+  const tabs = document.querySelectorAll('.sector-tab');
+  const cards = document.querySelectorAll('#clients-grid .client-card');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Update active tab
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const filter = tab.getAttribute('data-filter');
+
+      cards.forEach(card => {
+        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+          card.style.display = '';
+          // Fade in
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(8px)';
+          requestAnimationFrame(() => {
+            card.style.transition = 'opacity 0.25s, transform 0.25s';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          });
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
