@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="About Camerin Innovate — Our mission, story, team, and values. Leading healthcare and business software company based in Kochi, Kerala.">
+<title>About Us — Camerin Innovate</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+  .about-img-block{position:relative}
+  .about-img-card{background:linear-gradient(135deg,var(--blue),var(--teal));border-radius:var(--radius);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+  .about-img-inner{text-align:center;color:#fff;padding:40px}
+  .about-img-inner h3{font-size:28px;font-weight:800;margin-bottom:8px}
+  .about-img-inner p{font-size:14px;opacity:0.85;line-height:1.6}
+  .about-float{position:absolute;background:#fff;border-radius:12px;padding:14px 20px;box-shadow:var(--shadow-hover);border:1px solid var(--border);animation:float2 4s ease-in-out infinite}
+  .about-float-1{bottom:-20px;left:-20px}
+  .about-float-2{top:-16px;right:-16px;animation-delay:2s}
+  .af-num{font-family:'Sora',sans-serif;font-size:22px;font-weight:800;color:var(--blue)}
+  .af-label{font-size:11px;color:var(--muted);margin-top:2px}
+  .about-text .section-sub{max-width:none;margin-bottom:28px}
+  .about-text p{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:16px}
+  /* values */
+  .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .value-card{background:#fff;border-radius:var(--radius);padding:32px;border:1px solid var(--border);text-align:center;transition:all 0.25s}
+  .value-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-4px)}
+  .value-icon{width:64px;height:64px;border-radius:20px;background:linear-gradient(135deg,var(--blue),var(--teal));display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+  .value-icon svg{width:30px;height:30px;stroke:#fff;fill:none;stroke-width:1.8}
+  .value-title{font-family:'Sora',sans-serif;font-size:17px;font-weight:700;color:var(--text);margin-bottom:10px}
+  .value-desc{font-size:14px;color:var(--muted);line-height:1.65}
+  /* team */
+  .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+  .team-card{background:#fff;border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;transition:all 0.25s;text-align:center}
+  .team-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-4px)}
+  .team-avatar{height:140px;background:linear-gradient(135deg,var(--blue),var(--teal));display:flex;align-items:center;justify-content:center}
+  .team-initials{font-family:'Sora',sans-serif;font-size:42px;font-weight:800;color:#fff}
+  .team-info{padding:20px}
+  .team-name{font-family:'Sora',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:4px}
+  .team-role{font-size:13px;color:var(--teal);font-weight:600;margin-bottom:8px}
+  .team-bio{font-size:12px;color:var(--muted);line-height:1.6}
+  /* mission vision */
+  .mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .mv-card{border-radius:var(--radius);padding:40px;position:relative;overflow:hidden}
+  .mv-mission{background:linear-gradient(135deg,var(--blue-dark),var(--blue));color:#fff}
+  .mv-vision{background:linear-gradient(135deg,var(--teal),var(--teal-light));color:#fff}
+  .mv-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;opacity:0.7;margin-bottom:12px}
+  .mv-title{font-family:'Sora',sans-serif;font-size:26px;font-weight:800;margin-bottom:16px}
+  .mv-text{font-size:15px;opacity:0.85;line-height:1.7}
+  .mv-orb{position:absolute;border-radius:50%;filter:blur(50px);opacity:0.2;pointer-events:none}
+  @media(max-width:768px){
+    .about-grid{grid-template-columns:1fr;gap:40px}
+    .values-grid{grid-template-columns:1fr}
+    .mv-grid{grid-template-columns:1fr}
+    .about-float{display:none}
+    .history-grid{grid-template-columns:1fr!important}
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo"><a href="index.html"><img src="assets/camerin_logo.png" alt="Camerin Innovate"></a></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About Us</a></li>
+      <li><a href="services.html">Products &amp; Services</a></li>
+      <li><a href="clients.html">Clients</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Book a Consultation</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About Us</a></li>
+    <li><a href="services.html">Products &amp; Services</a></li>
+    <li><a href="clients.html">Clients</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="mobile-cta">Book a Consultation →</a>
+</div>
+
+<!-- ══ PAGE HERO ══ -->
+<section class="page-hero">
+  <div class="grid-dots"></div>
+  <div class="orb page-hero-orb1"></div>
+  <div class="orb page-hero-orb2"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>About Us</span>
+    </div>
+    <div class="page-hero-badge"><span></span>Our Story</div>
+    <h1>We Build Software That<br><em>Actually Helps People</em></h1>
+    <p>Camerin Innovate is a healthcare and enterprise software company based in Kochi, Kerala. We build platforms that help hospitals run better, businesses grow faster, and teams work smarter.</p>
+    <div class="page-hero-actions">
+      <a href="contact.html" class="btn-primary">Talk to Our Team →</a>
+      <a href="services.html" class="btn-secondary">See What We Build</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT STORY ══ -->
+<section style="background:#fff">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-img-block">
+        <div class="about-img-card" style="padding:0;background:none;overflow:hidden;border-radius:var(--radius);box-shadow:0 8px 40px rgba(27,75,138,0.18);">
+  <img 
+    src="assets/camerin-innovate-office.jpg" 
+    alt="Camerin Innovate Office — Kochi" 
+    style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius);"
+  >
+</div>
+        <div class="about-float about-float-1">
+          <div class="af-num">NABH</div>
+          <div class="af-label">Compliant HIS</div>
+        </div>
+        <div class="about-float about-float-2">
+          <div class="af-num">ISO 9001</div>
+          <div class="af-label">Quality Standard</div>
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="section-label">Who We Are</span>
+        <h2 class="section-title">Technology That<br><span>Serves Real People</span></h2>
+        <p>Camerin Innovate is a subsidiary of the Camerin Group, based at Carnival Infopark Phase 1, Kakkanad, Kochi. We specialize in healthcare information technology solutions and enterprise software for growing businesses.</p>
+        <p>Our flagship product, <strong>LIFE HIS</strong>, is a patient-centric, fully integrated healthcare delivery platform built to help hospitals and clinics manage clinical operations, administrative workflows, billing, and patient records — all in one place.</p>
+        <p>Beyond healthcare, we develop custom software for HR, CRM, digital operations, and brand development — built around the specific needs of each organization we work with, not off-the-shelf templates.</p>
+        <p>Our approach is simple: understand the problem first, then build the right solution. We don't sell software. We build long-term partnerships.</p>
+        <a href="contact.html" class="btn-primary" style="margin-top:8px">Work With Us →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MISSION & VISION ══ -->
+<section style="background:var(--light)">
+  <div class="section-inner">
+    <div class="section-header center">
+      <span class="section-label">Purpose</span>
+      <h2 class="section-title">Mission &amp; <span>Vision</span></h2>
+    </div>
+    <div class="mv-grid">
+      <div class="mv-card mv-mission">
+        <div class="mv-orb" style="width:200px;height:200px;background:#fff;top:-60px;right:-40px"></div>
+        <div class="mv-label">Our Mission</div>
+        <div class="mv-title">Build software that helps organizations run at their best</div>
+        <div class="mv-text">To provide healthcare providers and businesses with technology that reduces errors, saves time, lowers costs, and lets people focus on what they do best — not on managing broken systems.</div>
+      </div>
+      <div class="mv-card mv-vision">
+        <div class="mv-orb" style="width:200px;height:200px;background:#fff;top:-60px;left:-40px"></div>
+        <div class="mv-label">Our Vision</div>
+        <div class="mv-title">To be globally known for responsible, ethical technology</div>
+        <div class="mv-text">To be recognized worldwide as a firm that conducts business responsibly and ethically — growing through trust, results, and the long-term success of every organization we partner with.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ VALUES ══ -->
+<section style="background:#fff">
+  <div class="section-inner">
+    <div class="section-header center">
+      <span class="section-label">What Drives Us</span>
+      <h2 class="section-title">Our Core <span>Values</span></h2>
+      <p class="section-sub">These aren't poster words. They are the principles that guide every decision we make — in design, development, and client relationships.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="value-title">Trust First</div>
+        <div class="value-desc">We build trust before we build anything else. Every commitment we make to a client is a commitment we keep.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <div class="value-title">Problem-First Thinking</div>
+        <div class="value-desc">We don't start with a product and look for customers. We start with a real problem and build the exact solution it needs.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div class="value-title">People Over Process</div>
+        <div class="value-desc">Technology should serve the people using it — not the other way around. Every system we build is tested against real human workflows.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <div class="value-title">Measurable Impact</div>
+        <div class="value-desc">We measure success by outcomes — reduced wait times, faster billing, fewer errors. Not by features shipped.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <div class="value-title">Continuous Learning</div>
+        <div class="value-desc">Healthcare and technology both move fast. Our team stays ahead — not to follow trends, but to serve our clients better.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+        <div class="value-title">Responsible Growth</div>
+        <div class="value-desc">We grow by making our clients successful. Their growth is the only metric that matters to us in the long term.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COMPANY HISTORY ══ -->
+<section style="background:#fff">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">A History To Be Proud Of</span>
+      <h2 class="section-title">Our Journey <span>Since 2015</span></h2>
+      <p class="section-sub">You don't have to be great to start, but you have to start to be great.</p>
+    </div>
+    <div class="history-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+      <!-- Timeline -->
+      <div style="display:flex;flex-direction:column;gap:0">
+
+        <div style="display:flex;gap:20px;padding-bottom:32px;position:relative">
+          <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0">
+            <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--teal));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Sora',sans-serif;font-weight:700;font-size:12px;flex-shrink:0">2015</div>
+            <div style="width:2px;flex:1;background:linear-gradient(to bottom,var(--teal),rgba(46,158,122,0.1));margin-top:8px"></div>
+          </div>
+          <div style="padding-top:10px">
+            <div style="font-family:'Sora',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px">The Beginning</div>
+            <div style="font-size:14px;color:var(--muted);line-height:1.7">Camerin began its journey with a passion for making people's lives easier. CamerinFolks launched its first product, CF Stock — a retail management tool that quickly gained acceptance in both the UAE and Indian markets.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:20px;padding-bottom:32px;position:relative">
+          <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0">
+            <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--teal));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Sora',sans-serif;font-weight:700;font-size:12px;flex-shrink:0">2016</div>
+            <div style="width:2px;flex:1;background:linear-gradient(to bottom,var(--teal),rgba(46,158,122,0.1));margin-top:8px"></div>
+          </div>
+          <div style="padding-top:10px">
+            <div style="font-family:'Sora',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px">Entering Healthcare</div>
+            <div style="font-size:14px;color:var(--muted);line-height:1.7">The company expanded into healthcare and logistics, releasing several products capable of automating operations from small clinics to larger hospital chains. A dedicated web design team was formed to deliver the best UI experience to end users.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:20px;padding-bottom:32px;position:relative">
+          <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0">
+            <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--teal));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Sora',sans-serif;font-weight:700;font-size:12px;flex-shrink:0">2018</div>
+            <div style="width:2px;flex:1;background:linear-gradient(to bottom,var(--teal),rgba(46,158,122,0.1));margin-top:8px"></div>
+          </div>
+          <div style="padding-top:10px">
+            <div style="font-family:'Sora',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px">LIFE HIS Platform</div>
+            <div style="font-size:14px;color:var(--muted);line-height:1.7">Camerin Innovate launched LIFE HIS — a patient-centric, fully integrated healthcare delivery platform built to enable hospitals to deliver services using best-in-class administrative and clinical practices.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:20px">
+          <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0">
+            <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--teal));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Sora',sans-serif;font-weight:700;font-size:12px;flex-shrink:0">Now</div>
+          </div>
+          <div style="padding-top:10px">
+            <div style="font-family:'Sora',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px">200+ Strong</div>
+            <div style="font-size:14px;color:var(--muted);line-height:1.7">Today Camerin Innovate operates from Carnival Infopark, Kochi with 200+ team members, 70+ clients, and 50+ products — serving hospitals and enterprises across India and internationally.</div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Values summary -->
+      <div style="background:var(--light);border-radius:var(--radius);padding:36px;border:1px solid var(--border)">
+        <div style="font-family:'Sora',sans-serif;font-size:18px;font-weight:800;color:var(--blue-dark);margin-bottom:6px">Our Objective</div>
+        <p style="font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:24px">To be globally known as a firm that conducts business responsibly and ethically — thriving in healthcare, education, and corporate training. Growing international sales annually while forming the foundation for sound decision-making.</p>
+        <div style="font-family:'Sora',sans-serif;font-size:18px;font-weight:800;color:var(--blue-dark);margin-bottom:16px">Core Principles</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:#fff;border-radius:var(--radius-sm);border:1px solid var(--border)">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0"></div>
+            <span style="font-size:14px;font-weight:600;color:var(--text)">Trust</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:#fff;border-radius:var(--radius-sm);border:1px solid var(--border)">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0"></div>
+            <span style="font-size:14px;font-weight:600;color:var(--text)">Commitment</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:#fff;border-radius:var(--radius-sm);border:1px solid var(--border)">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0"></div>
+            <span style="font-size:14px;font-weight:600;color:var(--text)">Productivity</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:#fff;border-radius:var(--radius-sm);border:1px solid var(--border)">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0"></div>
+            <span style="font-size:14px;font-weight:600;color:var(--text)">Service</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:#fff;border-radius:var(--radius-sm);border:1px solid var(--border)">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0"></div>
+            <span style="font-size:14px;font-weight:600;color:var(--text)">Innovation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TEAM ══ -->
+<section style="background:var(--light)">
+  <div class="section-inner">
+    <div class="section-header center">
+      <span class="section-label">The People Behind The Work</span>
+      <h2 class="section-title">Meet Our <span>Team</span></h2>
+      <p class="section-sub">A group of engineers, designers, strategists, and healthcare specialists who genuinely care about the problems they solve.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar"><div class="team-initials">RK</div></div>
+        <div class="team-info">
+          <div class="team-name">Rajesh Kumar</div>
+          <div class="team-role">Founder &amp; CEO</div>
+          <div class="team-bio">Visionary leader with 15+ years in healthcare IT. Driving Camerin's mission to transform hospital operations across India.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,var(--teal),var(--blue))"><div class="team-initials">SP</div></div>
+        <div class="team-info">
+          <div class="team-name">Sunita Pillai</div>
+          <div class="team-role">Head of Product</div>
+          <div class="team-bio">Healthcare product specialist. Former hospital administrator turned software architect — she builds for people who've lived the problem.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#1a5f7a,var(--blue))"><div class="team-initials">AM</div></div>
+        <div class="team-info">
+          <div class="team-name">Arun Menon</div>
+          <div class="team-role">Lead Engineer</div>
+          <div class="team-bio">Full-stack engineer with deep expertise in healthcare data systems, interoperability, and NABH compliance.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,var(--blue-mid),var(--teal))"><div class="team-initials">PJ</div></div>
+        <div class="team-info">
+          <div class="team-name">Priya Jose</div>
+          <div class="team-role">Client Success Manager</div>
+          <div class="team-bio">Ensures every implementation succeeds. She doesn't consider a project done until the client's team is fully confident using the system.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS ══ -->
+<section style="background:#fff">
+  <div class="section-inner">
+    <div class="section-header center">
+      <span class="section-label">Camerin in Numbers</span>
+      <h2 class="section-title">A Track Record of <span>Real Results</span></h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-num">200+</div><div class="stat-label">Team Members</div></div>
+      <div class="stat-card"><div class="stat-num">70+</div><div class="stat-label">Satisfied Clients</div></div>
+      <div class="stat-card"><div class="stat-num">50+</div><div class="stat-label">Products Delivered</div></div>
+      <div class="stat-card"><div class="stat-num">8+</div><div class="stat-label">Years in Business</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="cta-section">
+  <div class="cta-orb cta-orb1"></div>
+  <div class="cta-orb cta-orb2"></div>
+  <div class="cta-inner">
+    <span class="cta-label">Let's work together</span>
+    <h2 class="cta-title">Ready to Build Something Better?</h2>
+    <p class="cta-sub">Whether you're a hospital looking to upgrade your systems or a business that needs smarter software — we want to hear your problem first.</p>
+    <div class="cta-actions">
+      <a href="contact.html" class="btn-white">Start a Conversation →</a>
+      <a href="services.html" class="btn-outline-white">See Our Products</a>
+    </div>
+    <div class="cta-contact">Or call us: <a href="tel:+914844063599">+91 484-4063599</a></div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-logo"><img src="assets/camerin_logo.png" alt="Camerin Innovate"></div>
+        <p class="footer-desc">Leading healthcare and business software company based in Kochi, Kerala.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=61557112896019" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/camerin_innovate" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://x.com/CamerinInnovate" target="_blank" rel="noopener" class="social-btn" aria-label="Twitter / X"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M4 20L20 4" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+          <a href="https://www.threads.net/@camerin_innovate" target="_blank" rel="noopener" class="social-btn" aria-label="Threads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 4c1.5 0 2.8.56 3.8 1.46C14.9 8.3 14 9.6 14 11c0 1.1.9 2 2 2s2-.9 2-2c0-3.31-2.69-6-6-6s-6 2.69-6 6v2c0 3.31 2.69 6 6 6 1.5 0 2.87-.55 3.9-1.46"/></svg></a>
+          <a href="https://www.linkedin.com/in/camerin-innovate-pvt-ltd-2baa652b9" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+        <div class="footer-address">Carnival Infopark Phase 1, Kakkanad<br>Kochi, Kerala — 682030<br><a href="mailto:info@camerinfolks.com" id="footer-email" >info@camerinfolks.com</a></div>
+      </div>
+      <div>
+        <div class="footer-heading">Company</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="clients.html">Clients &amp; Partners</a></li>
+          <li><a href="contact.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Products</div>
+        <ul class="footer-links">
+          <li><a href="services.html#his">Hospital IS (LIFE HIS)</a></li>
+          <li><a href="services.html#cms">Clinical Management</a></li>
+          <li><a href="services.html#hrm">HR System</a></li>
+          <li><a href="services.html#crm">CRM</a></li>
+          <li><a href="services.html#kiosk">Kiosks &amp; KOT</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Get In Touch</div>
+        <ul class="footer-links">
+          <li><a href="contact.html">Request a Demo</a></li>
+          <li><a href="contact.html">Get a Quote</a></li>
+          <li><a href="contact.html">Support</a></li>
+          <li><a href="contact.html">Partners</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Camerin Innovate Pvt Ltd. All rights reserved.</span>
+      <span>Made with care in Kerala, India 🇮🇳</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    });
+  });
+</script>
+
+</body>
+</html>
